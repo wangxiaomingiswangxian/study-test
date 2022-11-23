@@ -7,4 +7,6 @@ import java.util.List;
 public interface UserService {
 
     List<UserDO> getUsers();
+
+    void save(UserDO userDO);
 }

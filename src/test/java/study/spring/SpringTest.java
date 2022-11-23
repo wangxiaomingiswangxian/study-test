@@ -37,10 +37,14 @@ public class SpringTest {
     }
 
     @Test
-    public void testJDBc() {
+    public void testJDBC() {
         ApplicationContext act = new ClassPathXmlApplicationContext("JDBCConfig.xml");
         study.spring.jdbc.service.UserService userService = (study.spring.jdbc.service.UserService) act.getBean("userService");
         final List<UserDO> users = userService.getUsers();
         System.out.println(users.size());
+        final UserDO userDO = new UserDO();
+        userDO.setId(15343544);
+        userDO.setCreatorName("JDBCUser");
+        userService.save(userDO);
     }
 }
