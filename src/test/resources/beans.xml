@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--    <bean id="dateTest" class="com.wwi.platform.util.DateTest">-->
+<!--        <property name="dateValue" value="2022-11-22"/>-->
+<!--    </bean>-->
+<!--    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">-->
+<!--        <property name="customEditors">-->
+<!--            <map>-->
+<!--                <entry key="java.util.Date">-->
+<!--                    <bean class="com.wwi.platform.util.DataPropertyEditor">-->
+<!--                        <property name="format" value="yyyy-MM-dd"/>-->
+<!--                    </bean>-->
+<!--                </entry>-->
+<!--            </map>-->
+<!--        </property>-->
+<!--    </bean>-->
+    <bean id="testListener" class="study.spring.event.TestListener"/>
+</beans>
