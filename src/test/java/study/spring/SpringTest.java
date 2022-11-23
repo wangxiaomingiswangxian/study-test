@@ -8,6 +8,9 @@ import study.spring.aop.lib.jdkproxy.UserService;
 import study.spring.aop.lib.jdkproxy.UserServiceImpl;
 import study.spring.bean.properity.DateTest;
 import study.spring.event.TestEvent;
+import study.spring.jdbc.dataobject.UserDO;
+
+import java.util.List;
 
 public class SpringTest {
 
@@ -31,5 +34,13 @@ public class SpringTest {
         MyInvocationHandler myInvocationHandler = new MyInvocationHandler(userService);
         UserService proxy = (UserService)myInvocationHandler.getProxy();
         proxy.add();
+    }
+
+    @Test
+    public void testJDBc() {
+        ApplicationContext act = new ClassPathXmlApplicationContext("JDBCConfig.xml");
+        study.spring.jdbc.service.UserService userService = (study.spring.jdbc.service.UserService) act.getBean("userService");
+        final List<UserDO> users = userService.getUsers();
+        System.out.println(users.size());
     }
 }
