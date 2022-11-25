@@ -12,8 +12,10 @@
     <version>1.0.0-SNAPSHOT</version>
 
     <properties>
+        <dubbo.version>3.0.9</dubbo.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.8</java.version>
+        <java.version>1.17</java.version>
+        <cloth.componnts.version>0.0.1</cloth.componnts.version>
         <micrometer.version>1.7.1</micrometer.version>
         <mybatis-spring-starter.version>2.2.0</mybatis-spring-starter.version>
         <pagehelper.version>5.1.11</pagehelper.version>
@@ -278,6 +280,79 @@
             <version>7.5</version>
             <scope>test</scope>
         </dependency>
+        <!-- Dubbo -->
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+            <version>${dubbo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-rpc-api</artifactId>
+            <version>${dubbo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-rpc-dubbo</artifactId>
+            <version>${dubbo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-registry-nacos</artifactId>
+            <version>${dubbo.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>nacos-client</artifactId>
+                    <groupId>com.alibaba.nacos</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-configcenter-nacos</artifactId>
+            <version>${dubbo.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>nacos-client</artifactId>
+                    <groupId>com.alibaba.nacos</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-metadata-report-nacos</artifactId>
+            <version>${dubbo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-config-spring</artifactId>
+            <version>${dubbo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-remoting-netty4</artifactId>
+            <version>${dubbo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-serialization-hessian2</artifactId>
+            <version>${dubbo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.clothmate.developer</groupId>
+            <artifactId>developer-clothmate-client</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cloth.mate.mesh</groupId>
+            <artifactId>cloth-component-dto</artifactId>
+            <version>${cloth.componnts.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.clothmate.upms</groupId>
+            <artifactId>upms-client</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <profiles>
@@ -340,6 +415,14 @@
                 <configuration>
                     <verbose>true</verbose>
                     <overwrite>true</overwrite>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>16</source>
+                    <target>16</target>
                 </configuration>
             </plugin>
         </plugins>
