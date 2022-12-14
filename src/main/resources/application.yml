@@ -1,0 +1,57 @@
+server:
+  port: ${SERVER_PORT:8080}
+  websocket:
+    exporter:
+      enable: true
+
+spring:
+  profiles:
+    active: @env@
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:192.168.32.11}:${DB_PORT:15432}/s_platform
+    username: easyfetch
+    password: easyfetch2018
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 12
+      pool-name: hikariCP
+      minimum-idle: 6
+      connection-test-query: SELECT 1
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 50MB
+  redis:
+    host: ${REDIS_HOST:192.168.32.11}
+    port: ${REDIS_PORT:16379}
+    timeout: 2000ms
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 5
+  jackson:
+    date-format: yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
+  freemarker:
+    suffix: .ftl
+
+
+#management:
+#  endpoints:
+#    web:
+#      base-path: /metrics
+#      exposure:
+#        include: '*'
+#  metrics:
+#    export:
+#      prometheus:
+#        enabled: true
+#      jmx:
+#        enabled: true
+#  server:
+#    port: ${METRIC_PORT:8081}
+
+timeout:
+  order:
+    create: 3
