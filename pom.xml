@@ -363,6 +363,11 @@
             <artifactId>activemq-all</artifactId>
             <version>5.17.3</version>
         </dependency>
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-core</artifactId>
+            <version>3.5.2</version>
+        </dependency>
     </dependencies>
 
     <profiles>
