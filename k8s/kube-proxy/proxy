@@ -1,0 +1,5 @@
+KUBE_PROXY_ARGS="--kubeconfig=/etc/kubernetes/kubeconfig \
+--hostname-override=192.168.137.120 \
+--proxy-mode=iptables \
+--logtostderr=false --log-dir=/var/log/kubernetes --v=0"
+

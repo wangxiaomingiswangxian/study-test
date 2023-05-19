@@ -1,0 +1,5 @@
+KUBELET_ARGS="--kubeconfig=/etc/kubernetes/kubeconfig --config=/etc/kubernetes/kubelet.config \
+--hostname-override=192.168.137.120 \
+--network-plugin=cni \
+--logtostderr=false --log-dir=/var/log/kubernetes --v=0"
+
